@@ -1,0 +1,26 @@
+{
+  "name": "titan-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "server": "lite-server",
+    "webpack:bundle": "webpack",
+    "dev": "concurrently --names \"server,webpack\" \"npm run server --silent\" \"npm run webpack:bundle --silent\""
+
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^4.1.0",
+    "lite-server": "^2.4.0",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0"
+  }
+}
