@@ -29,9 +29,11 @@ flow.View = draw2d.Canvas.extend({
         var type = $(droppedDomNode).data("shape");
         var figure = eval("new "+type+"();");
         
-        figure.addEntity("id");
-        figure.setName("NewTable");
-        
+        if(type === 'TableShape') {
+            figure.addEntity("id");
+            figure.setName("NewTable");
+        }
+                
         // create a command for the undo/redo support
         var command = new draw2d.command.CommandAdd(this, figure, x, y);
         this.getCommandStack().execute(command);

@@ -17,6 +17,12 @@
     <script src="./app/View.js"></script>
     <script src="./app/Toolbar.js"></script>
     <script src="./app/TableShape.js"></script>
+    
+    
+    <script src="./app/shapes/StartBrick.js"></script>
+    <script src="./app/shapes/EndBrick.js"></script>
+    <script src="./app/shapes/GeneralBrick.js"></script>
+    <script src="./app/shapes/FilterBrick.js"></script>
 
     <script src="document.js"></script>
 
@@ -63,8 +69,8 @@ document.addEventListener("DOMContentLoaded",function () {
 
     // unmarshal the JSON document into the canvas
     // (load)
-    var reader = new draw2d.io.json.Reader();
-    reader.unmarshal(app.view, jsonDocument);
+    // var reader = new draw2d.io.json.Reader();
+    // reader.unmarshal(app.view, jsonDocument);
 
 });
 
@@ -82,9 +88,21 @@ document.addEventListener("DOMContentLoaded",function () {
      <span id="logo">Flow</span>
      <div id="layer_elements"></div>
      <div id="layer_header" class="highlight panetitle blackgradient">
-            <div data-shape="TableShape"  
+            <!-- <div data-shape="TableShape"  
              class="palette_node_element draw2d_droppable" 
-             title="drag&amp;drop the table into the canvas..">Table</div>
+             title="drag&amp;drop the table into the canvas..">Table</div> -->
+            <div data-shape="StartBrick"  
+             class="palette_node_element draw2d_droppable" 
+             title="drag&amp;drop the table into the canvas..">Start</div>
+            <div data-shape="EndBrick"  
+             class="palette_node_element draw2d_droppable" 
+             title="drag&amp;drop the table into the canvas..">End</div>
+            <div data-shape="GeneralBrick"  
+                class="palette_node_element draw2d_droppable" 
+                title="drag&amp;drop the table into the canvas..">General</div>
+            <div data-shape="FilterBrick"  
+             class="palette_node_element draw2d_droppable" 
+             title="drag&amp;drop the table into the canvas..">Filter</div>
      </div>
    </div>
 

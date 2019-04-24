@@ -123,5 +123,5 @@ var jsonDocument =
          "node": "3253ff2a-a920-09d5-f033-ca759a778e19",
          "port": "input_e97f6f8a-4306-0667-3a95-0a5310a2c15c"
        }
-     }
+     },
    ];
