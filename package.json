@@ -1,8 +1,8 @@
 {
-  "name": "titan-platform",
+  "name": "flow-diagram",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./app/Application.js",
   "directories": {
     "lib": "lib"
   },
@@ -10,7 +10,6 @@
     "server": "lite-server",
     "webpack:bundle": "webpack",
     "dev": "concurrently --names \"server,webpack\" \"npm run server --silent\" \"npm run webpack:bundle --silent\""
-
   },
   "author": "",
   "license": "ISC",
