@@ -2,9 +2,11 @@
 flow.Toolbar = Class.extend({
 	
 	init:function(elementId, view)
-	{
+	{	
+		console.log(this.html)
 		this.html = $("#"+elementId);
 		this.view = view;
+		console.warn(this.html)
 		
 		// register this class as event listener for the canvas
 		// CommandStack. This is required to update the state of 
@@ -22,14 +24,22 @@ flow.Toolbar = Class.extend({
 		this.undoButton  = $("<button class='gray'>Undo</button>");
 		this.html.append(this.undoButton);
 		this.undoButton.click($.proxy(function(){
-		       this.view.getCommandStack().undo();
+			console.log(this.view.getCommandStack())
+
+			   this.view.getCommandStack().undo();
+			   
 		},this));
+		
+		
+		console.log(this.view.getCommandStack())
 
 		// Inject the REDO Button and the callback
 		//
 		this.redoButton  = $("<button class='gray'>Redo</button>");
 		this.html.append(this.redoButton);
 		this.redoButton.click($.proxy(function(){
+			console.log(this.view.getCommandStack())
+
 		    this.view.getCommandStack().redo();
 		},this));
 		
