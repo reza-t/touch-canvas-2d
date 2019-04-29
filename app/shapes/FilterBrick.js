@@ -28,6 +28,9 @@ FilterBrick = draw2d.shape.basic.Polygon.extend({
       this.createPort("input");
 
       this.setPosition(box.getTopLeft());
+      
+      flow.myPolicy.shapeFeedback(this);
+
   }
 
 });

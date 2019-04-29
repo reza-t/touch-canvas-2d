@@ -14,6 +14,9 @@ StartBrick = draw2d.shape.basic.Rectangle.extend({
       },attr));
 
       this.createPort("output");
-  }
 
+      flow.myPolicy.shapeFeedback(this);
+
+      this.add(new draw2d.shape.basic.Label({text:"Start"}), new draw2d.layout.locator.CenterLocator());
+  }
 });
