@@ -5,6 +5,16 @@ flow.Toolbar = Class.extend({
 	{	
 		this.html = $("#"+elementId);
 		this.view = view;
+
+		view.getCommandStack().addEventListener(function(e){
+			if(e.isPostChangeEvent()){
+					var writer = new draw2d.io.json.Writer();
+					writer.marshal(view ,function(json){
+							console.warn(json)
+							$("#json").text(JSON.stringify(json, null, 2));
+					});
+			}
+	  });       
 		
 		// register this class as event listener for the canvas
 		// CommandStack. This is required to update the state of 
