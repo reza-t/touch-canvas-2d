@@ -6,6 +6,10 @@ flow.Toolbar = Class.extend({
 		this.html = $("#"+elementId);
 		this.view = view;
 
+		// Add the timer label to canvas
+		var timerFigure = new TimerFigure({x:0, y:0});
+		this.view.add(timerFigure);
+
 		view.getCommandStack().addEventListener(function(e){
 			if(e.isPostChangeEvent()){
 					var writer = new draw2d.io.json.Writer();
@@ -14,7 +18,7 @@ flow.Toolbar = Class.extend({
 							$("#json").text(JSON.stringify(json, null, 2));
 					});
 			}
-	  });       
+		});
 		
 		// register this class as event listener for the canvas
 		// CommandStack. This is required to update the state of 
@@ -63,11 +67,28 @@ flow.Toolbar = Class.extend({
 		
         this.disableButton(this.undoButton, true);
         this.disableButton(this.redoButton, true);
-        this.disableButton(this.deleteButton, true);
+				this.disableButton(this.deleteButton, true);
+				
+		
+			// Start Timer button
+			this.startTimer  = $("<button class='startTimer'>START TIMER</button>");
+			this.html.append(this.startTimer);
+			this.startTimer.click($.proxy(function(){
+				timerFigure.startTimer(1000);
+				isTimerStart = true;
+			},this));
+
+			// Stop Timer button
+			this.stopTimer  = $("<button class='stopTimer'>STOP TIMER</button>");
+			this.html.append(this.stopTimer);
+			this.stopTimer.click($.proxy(function(){
+				timerFigure.stopTimer();
+				isTimerStart = false;
+			},this));
 
         this.html.append($("<div id='toolbar_hint'>Flow-Base-Programming</div>"));
-    },
-
+		},
+		
 	/**
 	 * @method
 	 * Called if the selection in the cnavas has been changed. You must register this
@@ -106,5 +127,5 @@ flow.Toolbar = Class.extend({
         else{
             button.removeClass("disabled");
         }
-	}
+	},
 });
