@@ -10,8 +10,8 @@ FilterBrick = draw2d.shape.basic.Polygon.extend({
       var box = this.getBoundingBox();
       
       this.addVertex(0, 0);     // Go to the top center..
-      this.addVertex(100, 25); // ...draw line to the right bottom
-      this.addVertex(0, 50);     // Go to the top center..
+      this.addVertex(box.w*2, box.w/2); // ...draw line to the right bottom
+      this.addVertex(0, box.w);     // Go to the top center..
 
       console.log(box)
       // it is not necessary to close the path. A Polygon is always closed by definition.
@@ -30,6 +30,7 @@ FilterBrick = draw2d.shape.basic.Polygon.extend({
       this.setPosition(box.getTopLeft());
       
       flow.myPolicy.shapeFeedback(this);
+      this.label = new flow.Label(this);
 
   }
 

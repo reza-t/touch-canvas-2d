@@ -26,7 +26,7 @@ flow.Toolbar = Class.extend({
 		//
 		view.getCommandStack().addEventListener(this);
 
-		// Register a Selection listener for the state hnadling
+		// Register a Selection listener for the state handling
 		// of the Delete Button
 		//
         view.on("select", $.proxy(this.onSelectionChanged,this));
@@ -91,7 +91,7 @@ flow.Toolbar = Class.extend({
 		
 	/**
 	 * @method
-	 * Called if the selection in the cnavas has been changed. You must register this
+	 * Called if the selection in the canvas has been changed. You must register this
 	 * class on the canvas to receive this event.
 	 *
 	 * @param {draw2d.Canvas} emitter
