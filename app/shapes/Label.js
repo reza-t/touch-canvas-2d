@@ -11,7 +11,7 @@ flow.Label = Class.extend({
       onCancel: function(){
       }
     }));
-    shape.add(label, new draw2d.layout.locator.CenterLocator());
+    shape.add(label, new draw2d.layout.locator.TopLocator());
   }
 });
 

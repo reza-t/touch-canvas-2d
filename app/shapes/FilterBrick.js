@@ -1,9 +1,9 @@
 
-FilterBrick = draw2d.shape.basic.Polygon.extend({
+flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
 
   init : function(attr)
   {
-      this._super($.extend({bgColor:"#00a3f6",color:"#1B1B1B"},attr));
+      this._super($.extend({bgColor:"#bcc4be",color:"#1B1B1B"},attr));
       
       this.resetVertices();
       
