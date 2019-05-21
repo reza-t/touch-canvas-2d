@@ -25,14 +25,16 @@
     <script src="./app/TimerFigure.js"></script>
 
     <script src="./app/shapes/Label.js"></script>
-    <script src="./app/shapes/customePolicy.js"></script>
 
     <script src="./app/shapes/StartBrick.js"></script>
     <script src="./app/shapes/EndBrick.js"></script>
     <script src="./app/shapes/GeneralBrick.js"></script>
     <script src="./app/shapes/FilterBrick.js"></script>
 
-    <script src="./app/shapes/MyInterceptorPolicy.js"></script>
+    <script src="./app/policy/customePolicy.js"></script>
+    <script src="./app/policy/MyInterceptorPolicy.js"></script>
+    <script src="./app/policy/MyConnection.js"></script>
+    <script src="./app/policy/ContextMenu.js"></script>
 
     
     <script src="document.js"></script>
@@ -62,15 +64,7 @@
 
        var createConnection = function(sourcePort, targetPort){
 
-        var conn= new draw2d.Connection({
-            router:new draw2d.layout.connection.InteractiveManhattanConnectionRouter(),
-            stroke:2,
-            color:"#00a8f0",
-            radius:20,
-            outlineColor:"#30ff30",
-            source:sourcePort,
-            target:targetPort
-        });
+        var conn= new flow.MyConnection();
     
         // since version 3.5.6
         //
@@ -88,8 +82,8 @@
         });
     
         return conn;
-    
       };
+
       document.addEventListener('DOMContentLoaded', function() {
         var app = new flow.Application()
         app.view.installEditPolicy(

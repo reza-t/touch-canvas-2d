@@ -18,6 +18,12 @@ EndBrick = draw2d.shape.basic.Rectangle.extend({
       flow.myPolicy.shapeFeedback(this);
       this.label = new flow.Label(this);
 
+  },
+
+  onContextMenu:function(x,y){
+    var menu = new flow.ContextMenu();
+    menu.onContextMenu(x, y, this);
   }
+  
 
 });

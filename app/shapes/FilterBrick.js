@@ -31,6 +31,12 @@ flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
       flow.myPolicy.shapeFeedback(this);
       this.label = new flow.Label(this);
 
+  },
+
+  onContextMenu:function(x,y){
+    var menu = new flow.ContextMenu();
+    menu.onContextMenu(x, y, this);
   }
+  
 
 });

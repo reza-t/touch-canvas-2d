@@ -15,7 +15,11 @@ flow.GeneralBrick = draw2d.shape.node.Between.extend({
       flow.myPolicy.shapeFeedback(this);
       this.label = new flow.Label(this);
   },
-
+  
+  onContextMenu:function(x,y){
+    var menu = new flow.ContextMenu();
+    menu.onContextMenu(x, y, this);
+  },
 
   /**
    * @method
