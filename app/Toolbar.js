@@ -14,7 +14,6 @@ flow.Toolbar = Class.extend({
 			if(e.isPostChangeEvent()){
 					var writer = new draw2d.io.json.Writer();
 					writer.marshal(view ,function(json){
-							console.warn(json)
 							$("#json").text(JSON.stringify(json, null, 2));
 					});
 			}

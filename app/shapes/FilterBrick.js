@@ -13,7 +13,6 @@ flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
       this.addVertex(box.w*2, box.w/2); // ...draw line to the right bottom
       this.addVertex(0, box.w);     // Go to the top center..
 
-      console.log(box)
       // it is not necessary to close the path. A Polygon is always closed by definition.
       // (Use a Polyline if you need an open path)
       //        this.addVertex(box.w/2 , 0);     // and close the path
