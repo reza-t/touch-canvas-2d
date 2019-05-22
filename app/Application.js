@@ -1,8 +1,7 @@
 // declare the namespace for this flow
 var flow = {};
 
-flow.Application = Class.extend(
-{
+flow.Application = Class.extend({
     NAME : "flow.Application", 
 
     /**
