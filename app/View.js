@@ -7,7 +7,6 @@ flow.View = draw2d.Canvas.extend({
 		this._super(id, 2000,2000);
         this.setScrollArea("#"+id);
         this.installEditPolicy(new draw2d.policy.canvas.SnapToGeometryEditPolicy());
-
 	},
     
     /**
@@ -37,6 +36,6 @@ flow.View = draw2d.Canvas.extend({
         // create a command for the undo/redo support
         var command = new draw2d.command.CommandAdd(this, figure, x, y);
         this.getCommandStack().execute(command);
-    }
+    },
 });
 

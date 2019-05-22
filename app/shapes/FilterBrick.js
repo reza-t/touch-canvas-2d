@@ -36,6 +36,29 @@ flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
   onContextMenu:function(x,y){
     var menu = new flow.ContextMenu();
     menu.onContextMenu(x, y, this);
+  },
+
+  onDrop:function(dropTarget, x, y, shiftKey, ctrlKey)
+  {
+    console.warn("onDrop")
+    // Activate a "smart insert" If the user drop this figure on connection
+    //
+    if(dropTarget instanceof draw2d.Connection){
+      let oldSource = dropTarget.getSource();
+      let oldTarget = dropTarget.getTarget();
+
+      let stack = this.getCanvas().getCommandStack();
+
+      let cmd = new draw2d.command.CommandReconnect(dropTarget);
+      cmd.setNewPorts(oldSource, this.getInputPort(0));
+      stack.execute(cmd);
+
+      let additionalConnection = createConnection();
+      cmd = new draw2d.command.CommandConnect(oldTarget,this.getOutputPort(0));
+      cmd.setConnection(additionalConnection);
+      stack.execute(cmd);
+
+    }
   }
   
 

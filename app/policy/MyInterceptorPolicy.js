@@ -24,7 +24,9 @@ var MyInterceptorPolicy = draw2d.policy.canvas.DropInterceptorPolicy.extend({
     {
         // we allow that a figure with a special class is droppable to a connection
         //
-        if(requestingFigure instanceof flow.GeneralBrick && connectTarget instanceof draw2d.Connection){
+        if(requestingFigure instanceof flow.GeneralBrick || 
+            requestingFigure instanceof flow.FilterBrick  && connectTarget instanceof draw2d.Connection){
+            console.log(requestingFigure)
             return connectTarget;
         }
         

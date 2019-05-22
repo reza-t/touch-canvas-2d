@@ -69,15 +69,14 @@
         // since version 3.5.6
         //
         conn.on("dragEnter", function(emitter, event){
-          console.warn("Drag IN")
           conn.attr({
-            outlineStroke:2
+            outlineStroke: 3
           });
         });
         
         conn.on("dragLeave", function(emitter, event){
           conn.attr({
-            outlineStroke:0
+            outlineStroke: 0
           });
         });
     
@@ -93,7 +92,7 @@
         )
         app.view.installEditPolicy(new MyInterceptorPolicy());
 
-
+      
         // unmarshal the JSON document into the canvas
         // (load)
         // var reader = new draw2d.io.json.Reader()
