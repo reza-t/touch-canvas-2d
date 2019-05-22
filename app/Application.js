@@ -1,13 +1,6 @@
 // declare the namespace for this flow
 var flow = {};
 
-/**
- * 
- * The **GraphicalEditor** is responsible for layout and dialog handling.
- * 
- * @author Andreas Herz
- * @extends draw2d.ui.parts.GraphicalEditor
- */
 flow.Application = Class.extend(
 {
     NAME : "flow.Application", 
