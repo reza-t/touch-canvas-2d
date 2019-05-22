@@ -26,7 +26,6 @@ var MyInterceptorPolicy = draw2d.policy.canvas.DropInterceptorPolicy.extend({
         //
         if(requestingFigure instanceof flow.GeneralBrick || 
             requestingFigure instanceof flow.FilterBrick  && connectTarget instanceof draw2d.Connection){
-            console.log(requestingFigure)
             return connectTarget;
         }
         

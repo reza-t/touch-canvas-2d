@@ -37,7 +37,6 @@ flow.GeneralBrick = draw2d.shape.node.Between.extend({
    **/
   onDrop:function(dropTarget, x, y, shiftKey, ctrlKey)
   {
-    console.warn("onDrop")
     // Activate a "smart insert" If the user drop this figure on connection
     //
     if(dropTarget instanceof draw2d.Connection){

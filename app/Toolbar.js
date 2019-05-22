@@ -35,8 +35,6 @@ flow.Toolbar = Class.extend({
 		this.undoButton  = $("<button class='gray'>Undo</button>");
 		this.html.append(this.undoButton);
 		this.undoButton.click($.proxy(function(){
-			console.log(this.view.getCommandStack())
-
 			   this.view.getCommandStack().undo();
 			   
 		},this));
@@ -46,8 +44,6 @@ flow.Toolbar = Class.extend({
 		this.redoButton  = $("<button class='gray'>Redo</button>");
 		this.html.append(this.redoButton);
 		this.redoButton.click($.proxy(function(){
-			console.log(this.view.getCommandStack())
-
 		    this.view.getCommandStack().redo();
 		},this));
 		
