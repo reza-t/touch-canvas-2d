@@ -63,8 +63,25 @@ flow.Toolbar = Class.extend({
         this.disableButton(this.undoButton, true);
         this.disableButton(this.redoButton, true);
 				this.disableButton(this.deleteButton, true);
-				
 		
+		// Inject the GROUP Button and the callbacks
+    //
+    this.groupButton  = $('<button class="btn btn-primary" >Group</button>');
+		this.html.append(this.groupButton);
+     this.groupButton.click($.proxy(function(){
+		 	var command= new draw2d.command.CommandGroup(this.view, this.view.getSelection());
+			 this.view.getCommandStack().execute(command);
+     },this));
+
+    // // Inject the UNGROUP Button and the callbacks
+    // //
+    this.groupButton  = $('<button class="btn btn-info" >Un group</button>');
+		this.html.append(this.groupButton);
+    this.groupButton.click($.proxy(function(){
+			var command= new draw2d.command.CommandUngroup(this.view, this.view.getSelection());
+			this.view.getCommandStack().execute(command);
+    },this));
+				
 			// Start Timer button
 			this.startTimer  = $("<button class='startTimer'>START TIMER</button>");
 			this.html.append(this.startTimer);
