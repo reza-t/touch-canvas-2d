@@ -115,7 +115,7 @@ flow.Toolbar = Class.extend({
     );
 
     this.touchCounter = $(
-      "<p style='color:white; margin:5px; float:right;'>The number of fingers touching this document is currently <span id='touchCounter'>0</span>.</p>"
+      "<p style='color:white; margin-right:25px; float:right;'>The number of fingers touching this document is currently <span id='touchCounter'>0</span>.</p>"
     );
     this.html.append(this.touchCounter);
   },
