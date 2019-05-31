@@ -9,8 +9,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link type="text/css" rel="stylesheet" href="./css/application.css" />
-    <link type="text/css" rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css" />
-    <link type="text/css" rel="stylesheet" href="./lib/bootstrap/css/bootstrap-theme.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="./lib/bootstrap/css/bootstrap.css"
+    />
+    <!-- <link type="text/css" rel="stylesheet" href="./lib/bootstrap/css/bootstrap-theme.css" /> -->
     <script src="./lib/jquery.js"></script>
     <script src="./lib/jquery-ui.js"></script>
     <script src="./lib/jquery.browser.js"></script>
@@ -37,7 +41,6 @@
     <script src="./app/policy/MyConnection.js"></script>
     <script src="./app/policy/ContextMenu.js"></script>
 
-    
     <script src="document.js"></script>
 
     <style>
@@ -63,48 +66,59 @@
        * @returns {draw2d.Connection}
        */
 
-       var createConnection = function(sourcePort, targetPort){
+      var createConnection = function(sourcePort, targetPort) {
+        var conn = new flow.MyConnection();
 
-        var conn= new flow.MyConnection();
-    
         // since version 3.5.6
         //
-        conn.on("dragEnter", function(emitter, event){
+        conn.on("dragEnter", function(emitter, event) {
           conn.attr({
             outlineStroke: 3
           });
         });
-        
-        conn.on("dragLeave", function(emitter, event){
+
+        conn.on("dragLeave", function(emitter, event) {
           conn.attr({
             outlineStroke: 0
           });
         });
-    
+
         return conn;
       };
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var app = new flow.Application()
-        app.view.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
-        app.view.installEditPolicy(new draw2d.policy.canvas.ExtendedKeyboardPolicy());
+      document.addEventListener("DOMContentLoaded", function() {
+        var app = new flow.Application();
+        app.view.installEditPolicy(
+          new draw2d.policy.canvas.FadeoutDecorationPolicy()
+        );
+        app.view.installEditPolicy(
+          new draw2d.policy.canvas.ExtendedKeyboardPolicy()
+        );
         app.view.installEditPolicy(
           new draw2d.policy.connection.DragConnectionCreatePolicy({
             createConnection: createConnection
           })
-        )
+        );
         app.view.installEditPolicy(new MyInterceptorPolicy());
 
-      
         // unmarshal the JSON document into the canvas
         // (load)
         // var reader = new draw2d.io.json.Reader()
         // reader.unmarshal(app.view, jsonDocument)
-      })
+      });
+
+      function countTouches(event) {
+        var x = event.touches.length;
+        document.getElementById("touchCounter").innerHTML = x;
+      }
     </script>
   </head>
 
-  <body id="container">
+  <body
+    id="container"
+    ontouchstart="countTouches(event)"
+    ontouchend="countTouches(event)"
+  >
     <div id="toolbar" class="navbar-default"></div>
 
     <div id="side-nav">
@@ -147,7 +161,7 @@
     </div>
 
     <div id="canvas"></div>
-<!-- <pre id="json" style="overflow:auto;position:absolute; top:50px; right:15px; width:350; height:800;background:white;border:1px solid gray">
+    <!-- <pre id="json" style="overflow:auto;position:absolute; top:50px; right:15px; width:350; height:800;background:white;border:1px solid gray">
 </pre> -->
   </body>
 </html>
