@@ -86,6 +86,8 @@
 
       document.addEventListener('DOMContentLoaded', function() {
         var app = new flow.Application()
+        app.view.installEditPolicy(new draw2d.policy.canvas.FadeoutDecorationPolicy());
+        app.view.installEditPolicy(new draw2d.policy.canvas.ExtendedKeyboardPolicy());
         app.view.installEditPolicy(
           new draw2d.policy.connection.DragConnectionCreatePolicy({
             createConnection: createConnection
