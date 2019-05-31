@@ -28,7 +28,7 @@ flow.Toolbar = Class.extend({
 		// Register a Selection listener for the state handling
 		// of the Delete Button
 		//
-        view.on("select", $.proxy(this.onSelectionChanged,this));
+    view.on("select", $.proxy(this.onSelectionChanged,this));
 		
 		// Inject the UNDO Button and the callbacks
 		//
@@ -97,9 +97,7 @@ flow.Toolbar = Class.extend({
 				timerFigure.stopTimer();
 				isTimerStart = false;
 			},this));
-
-        this.html.append($("<div id='toolbar_hint'>Flow-Base-Programming</div>"));
-		},
+	},
 		
 	/**
 	 * @method
