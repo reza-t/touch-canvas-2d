@@ -109,7 +109,6 @@ var MarkerStateBFigure = draw2d.shape.layout.HorizontalLayout.extend({
         var arrowLength=8;
 
         this.vertices   = new draw2d.util.ArrayList();
-
         var w= this.width;
         var h= this.height;
         var pos= this.getAbsolutePosition();

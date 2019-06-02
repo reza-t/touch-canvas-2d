@@ -27,7 +27,6 @@ var MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
         setter, 
         getter);
 
-
         // figure if the decoration is not permanent visible (sticky note)
         this.add(this.stateA = new MarkerStateAFigure({text:"X"}));
         // figure if the decoration permanent visible
@@ -39,7 +38,13 @@ var MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
         });
 
         this.on("mouseleave",function(emitter, event){
-            _this.onMouseOver(false);
+            _this.onMouseOver(true);
+        });
+
+        this.on("touchstart",function(emitter, event){
+            _this.onMouseOver(true);
+            alert("TEST");
+            console.warn("TEST");
         });
 
         this.on("click",function(emitter, event){
@@ -63,10 +68,16 @@ var MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
                         // propagate the default value to the port
                         //
                         switch(key){
-                            case "high":
+                            case "s":
                                 _this.setDefaultValue(true);
                                 break;
-                            case "low":
+                            case "r":
+                                _this.setDefaultValue(false);
+                                break;
+                            case "t":
+                                _this.setDefaultValue(false);
+                                break;
+                            case "d":
                                 _this.setDefaultValue(false);
                                 break;
                             default:
@@ -77,8 +88,10 @@ var MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
                     x:event.x,
                     y:event.y,
                     items:{
-                        "high": {name: "High"},
-                        "low":  {name: "Low" }
+                        "s": {name: "S"},
+                        "r": {name: "R"},
+                        "t": {name: "T"},
+                        "d": {name: "D"}
                     }
                 });
 
@@ -153,7 +166,7 @@ var MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
     setDefaultValue: function(value)
     {
         this.defaultValue = value;
-        this.setText((this.defaultValue===true)?"High":"Low")
+        this.setText((this.defaultValue===true)?"S":"R")
 
         // only propagate the value to the parent if the decoration permanent visible
         //
