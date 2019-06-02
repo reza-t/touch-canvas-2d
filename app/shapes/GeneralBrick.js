@@ -12,6 +12,9 @@ flow.GeneralBrick = draw2d.shape.node.Between.extend({
         radius: 10
       },attr));
 
+      this.addPort(new DecoratedInputPort());
+      this.addPort(new DecoratedInputPort());
+      
       flow.myPolicy.shapeFeedback(this);
       this.label = new flow.Label(this);
   },
