@@ -124,7 +124,10 @@
         document.getElementById("touchCounter").innerHTML = x;
         // event.preventDefault();
         if(x === 2) {
-          canvas.setZoom(canvas.getZoom()*0.7,true);
+          canvas.installEditPolicy(new draw2d.policy.canvas.PanningSelectionPolicy()); 
+        }
+        if(x===1) {
+          canvas.installEditPolicy(new draw2d.policy.canvas.BoundingboxSelectionPolicy()); 
         }
       }
       
