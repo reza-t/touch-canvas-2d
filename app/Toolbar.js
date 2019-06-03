@@ -1,8 +1,8 @@
 flow.Toolbar = Class.extend({
-  init: function(elementId, view) {
+  init: function(elementId, app, view) {
     this.html = $("#" + elementId);
     this.view = view;
-
+    this.app = app;
     // Add the timer label to canvas
     var timerFigure = new TimerFigure({ x: 0, y: 0 });
     this.view.add(timerFigure);
@@ -114,6 +114,34 @@ flow.Toolbar = Class.extend({
         isTimerStart = false;
       }, this)
     );
+
+    	
+		// Inject the Zoom in Button and the callbacks
+		//
+		this.zoomInButton  = $("<button class='btn btn-default'>Zoom In</button>");
+		this.html.append(this.zoomInButton);
+		this.zoomInButton.button().click($.proxy(function(){
+		      this.view.setZoom(this.view.getZoom()*0.7,true);
+		      // this.app.layout();
+		},this));
+
+		// Inject the 1:1 Button
+		//
+		this.resetButton  = $("<button class='btn btn-default'>1:1</button>");
+		this.html.append(this.resetButton);
+		this.resetButton.button().click($.proxy(function(){
+		    this.view.setZoom(1.0, true);
+            // this.app.layout();
+		},this));
+		
+		// Inject the Zoom out Button and the callback
+		//
+		this.zoomOutButton  = $("<button class='btn btn-default'>Zoom Out</button>");
+		this.html.append(this.zoomOutButton);
+		this.zoomOutButton.button().click($.proxy(function(){
+            this.view.setZoom(this.view.getZoom()*1.3, true);
+            // this.app.layout();
+		},this));
 
     this.touchCounter = $(
       "<p style='color:white; margin-right:25px; float:right;'>The number of fingers touching this document is currently <span id='touchCounter'>0</span>.</p>"
