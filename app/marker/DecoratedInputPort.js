@@ -5,7 +5,7 @@ var DecoratedInputPort = draw2d.InputPort.extend({
     {
         this._super(attr, setter, getter);
         
-        this.decoration = new MarkerFigure();
+        this.decoration = new flow.MarkerFigure();
 
         this.add(this.decoration, new draw2d.layout.locator.LeftLocator({margin:8}));
 

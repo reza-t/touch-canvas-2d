@@ -9,7 +9,7 @@
  * This kind of decoration is usefull for defualt values on workflwos enginges or circuit diagrams
  *
  */
-var MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
+flow.MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
 
     NAME : "MarkerFigure",
 
@@ -41,13 +41,11 @@ var MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
             _this.onMouseOver(true);
         });
 
-        this.on("touchstart",function(emitter, event){
-            _this.onMouseOver(true);
-            alert("TEST");
-            console.warn("TEST");
+        $(this).on("click", function(event) {
+            console.log(event);
         });
 
-        this.on("click",function(emitter, event){
+        this.on("click touchstart",function(emitter, event){
             if (_this.isVisible() === false) {
                 return;//silently
             }

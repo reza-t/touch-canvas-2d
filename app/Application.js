@@ -13,6 +13,8 @@ flow.Application = Class.extend({
     {
 	      this.view    = new flow.View("canvas");
           this.toolbar = new flow.Toolbar("toolbar",  this.view );
+          this.properties = new flow.EventPane(this.view);
+
 	}
 
 

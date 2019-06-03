@@ -7,14 +7,15 @@ flow.Toolbar = Class.extend({
     var timerFigure = new TimerFigure({ x: 0, y: 0 });
     this.view.add(timerFigure);
 
-    view.getCommandStack().addEventListener(function(e) {
-      if (e.isPostChangeEvent()) {
-        var writer = new draw2d.io.json.Writer();
-        writer.marshal(view, function(json) {
-          $("#json").text(JSON.stringify(json, null, 2));
-        });
-      }
-    });
+    // Export the json 
+    // view.getCommandStack().addEventListener(function(e) {
+    //   if (e.isPostChangeEvent()) {
+    //     var writer = new draw2d.io.json.Writer();
+    //     writer.marshal(view, function(json) {
+    //       $("#json").text(JSON.stringify(json, null, 2));
+    //     });
+    //   }
+    // });
 
     // register this class as event listener for the canvas
     // CommandStack. This is required to update the state of

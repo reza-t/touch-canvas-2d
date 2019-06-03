@@ -46,6 +46,8 @@
     <script src="./app/marker/MarkerStateAFigure.js"></script>
     <script src="./app/marker/MarkerStateBFigure.js"></script>
 
+    <script src="./app/EventPane.js"></script>
+
     <script src="document.js"></script>
 
     <style>
@@ -118,11 +120,6 @@
         document.getElementById("touchCounter").innerHTML = x;
       }
 
-      // Count the number of fingers on Brick
-      function touchBrick(event) {
-        var x = event.touches.length;
-        console.warn(x);
-      }
     </script>
   </head>
 
@@ -137,7 +134,6 @@
              class="palette_node_element draw2d_droppable" 
              title="drag&amp;drop the table into the canvas..">Table</div> -->
         <div
-          ontouchstart="touchBrick(event)"
           data-shape="StartBrick"
           id="start"
           class="palette_node_element draw2d_droppable"
@@ -174,7 +170,7 @@
       ontouchstart="countTouches(event)"
       ontouchend="countTouches(event)"
     ></div>
-    <!-- <pre id="json" style="overflow:auto;position:absolute; top:50px; right:15px; width:350; height:800;background:white;border:1px solid gray">
-</pre> -->
+    <pre id="events" style="overflow:auto;position:absolute; top:50px; right:15px; width:350; height:800;background:white;border:1px solid gray">
+</pre>
   </body>
 </html>
