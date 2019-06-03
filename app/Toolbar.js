@@ -32,7 +32,7 @@ flow.Toolbar = Class.extend({
 		this.html.append(this.editGroup);
     // Inject the UNDO Button and the callbacks
     //
-    this.undoButton = $("<button class='gray'>Undo</button>");
+    this.undoButton = $("<button class='btn btn-primary'>Undo</button>");
     this.editGroup.append(this.undoButton);
     this.undoButton.click(
       $.proxy(function() {
@@ -42,7 +42,7 @@ flow.Toolbar = Class.extend({
 
     // Inject the REDO Button and the callback
     //
-    this.redoButton = $("<button class='gray'>Redo</button>");
+    this.redoButton = $("<button class='btn btn-primary'>Redo</button>");
     this.editGroup.append(this.redoButton);
     this.redoButton.click(
       $.proxy(function() {
@@ -55,7 +55,7 @@ flow.Toolbar = Class.extend({
 
     // Inject the DELETE Button
     //
-    this.deleteButton = $("<button class='gray'>Delete</button>");
+    this.deleteButton = $("<button class='btn btn-danger'>Delete</button>");
     this.editGroup.append(this.deleteButton);
     this.deleteButton.click(
       $.proxy(function() {
@@ -129,7 +129,7 @@ flow.Toolbar = Class.extend({
             // this.app.layout();
     },this));
 
-    
+
     this.timerGroup  = $("<div class='btn-group btnGroup' role='group' aria-label='Basic example'>");
 		this.html.append(this.timerGroup);
 
