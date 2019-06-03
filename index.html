@@ -94,8 +94,10 @@
         return conn;
       };
 
+      var canvas = {};
       document.addEventListener("DOMContentLoaded", function() {
         var app = new flow.Application();
+
         app.view.installEditPolicy(
           new draw2d.policy.canvas.FadeoutDecorationPolicy()
         );
@@ -109,6 +111,7 @@
         );
         app.view.installEditPolicy(new MyInterceptorPolicy());
 
+        canvas = app.view;
         // unmarshal the JSON document into the canvas
         // (load)
         // var reader = new draw2d.io.json.Reader()
@@ -119,7 +122,10 @@
       function countTouches(event) {
         var x = event.touches.length;
         document.getElementById("touchCounter").innerHTML = x;
-        event.preventDefault();
+        // event.preventDefault();
+        if(x === 2) {
+          canvas.setZoom(canvas.getZoom()*0.7,true);
+        }
       }
       
     </script>
