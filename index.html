@@ -119,13 +119,17 @@
       function countTouches(event) {
         var x = event.touches.length;
         document.getElementById("touchCounter").innerHTML = x;
+        event.preventDefault();
       }
-
+      
     </script>
   </head>
 
   <body id="container">
-    <nav id="toolbar" class="navbar navbar-expand-lg navbar-light bg-light navbar-default"></nav>
+    <nav
+      id="toolbar"
+      class="navbar navbar-expand-lg navbar-light bg-light navbar-default"
+    ></nav>
 
     <div id="side-nav">
       <span id="logo">Flow</span>
@@ -171,7 +175,9 @@
       ontouchstart="countTouches(event)"
       ontouchend="countTouches(event)"
     ></div>
-    <pre id="events" style="overflow:auto;position:absolute; top:50px; right:15px; width:15em; height:800;background:white;border:1px solid gray">
-</pre>
+    <pre
+      id="events"
+      style="overflow:auto;position:absolute; top:50px; right:15px; width:15em; height:800;background:white;border:1px solid gray"
+    ></pre>
   </body>
 </html>
