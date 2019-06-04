@@ -73,7 +73,7 @@ flow.Toolbar = Class.extend({
 		this.html.append(this.groupButtons);
     // Inject the GROUP Button and the callbacks
     //
-    this.groupButton = $('<button class="btn btn-primary" >Group</button>');
+    this.groupButton = $('<button class="btn btn-primary" >Group <img src="./app/icons/group.png" style="width: 20px"></button>');
     this.groupButtons.append(this.groupButton);
     this.groupButton.click(
       $.proxy(function() {
@@ -87,7 +87,7 @@ flow.Toolbar = Class.extend({
 
     // // Inject the UNGROUP Button and the callbacks
     // //
-    this.groupButton = $('<button class="btn btn-danger" >Un group</button>');
+    this.groupButton = $('<button class="btn btn-danger">Ungroup <img src="./app/icons/ungroup.png" style="width: 20px"></button>');
     this.groupButtons.append(this.groupButton);
     this.groupButton.click(
       $.proxy(function() {

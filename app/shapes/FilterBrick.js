@@ -24,7 +24,6 @@ flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
       this.installEditPolicy(new draw2d.policy.figure.RectangleSelectionFeedbackPolicy());
       this.createPort("output");
       this.createPort("input");
-      this.createPort("input");
 
       this.setPosition(box.getTopLeft());
       
