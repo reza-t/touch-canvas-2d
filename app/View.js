@@ -3,6 +3,7 @@ flow.View = draw2d.Canvas.extend({
     this._super(id, 2000, 2000);
     this.setScrollArea("#" + id);
     this.installEditPolicy(new draw2d.policy.canvas.SnapToGeometryEditPolicy());
+    this.installEditPolicy(new flow.CopyInterceptorPolicy());
   },
 
   /**
