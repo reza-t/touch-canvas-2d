@@ -20,13 +20,12 @@ StartBrick = draw2d.shape.basic.Rectangle.extend({
 
     this.label = new flow.Label(this);
 
-    this.on('touchstart', function(){
-      console.warn("FUCK YOU")
-    });
   },
 
   onContextMenu: function(x, y) {
     var menu = new flow.ContextMenu();
     menu.onContextMenu(x, y, this);
-  }
+  },
+
+
 });
