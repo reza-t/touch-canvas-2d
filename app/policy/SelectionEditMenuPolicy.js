@@ -1,5 +1,5 @@
 
-var SelectionMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
+var SelectionEditMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 	NAME: "SelectionMenuPolicy",
 
     init : function(attr, setter, getter)
@@ -22,14 +22,12 @@ var SelectionMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 		this._super(canvas, figure, isPrimarySelection);
 
 		if (this.overlay === null) {
-			this.overlay= $("<div class='overlayMenu material-icons'>delete</div>");
+			this.overlay= $("<div class='edit material-icons'>edit</div>");
 			$("body").append(this.overlay);
 			this.overlay.on("click",function(){
 
-				// use a Command and CommandStack for undo/redo support
-				//
-				var command= new draw2d.command.CommandDelete(figure);
-				canvas.getCommandStack().execute(command);
+			figure.label.editor.start(figure.label)
+				
 			})
 		}
 		this.posOverlay(figure);
@@ -61,7 +59,7 @@ var SelectionMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 	{
 		this.overlay.css({
 			"top":figure.getAbsoluteY() + 30,
-			"left":figure.getAbsoluteX() + 150
+			"left":figure.getAbsoluteX() + 235
 		});
 	}
 });

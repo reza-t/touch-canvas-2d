@@ -15,6 +15,7 @@ var Label = draw2d.shape.basic.Label.extend({
 
     shape.add(this, new draw2d.layout.locator.TopLocator());
     shape.installEditPolicy(new SelectionMenuPolicy());
+    shape.installEditPolicy(new SelectionEditMenuPolicy());
 
   },
 });
