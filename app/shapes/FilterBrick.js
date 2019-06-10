@@ -29,7 +29,7 @@ flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
       
       flow.myPolicy.shapeFeedback(this);
       this.label = new Label(this);
-
+      
   },
 
   onContextMenu:function(x,y){

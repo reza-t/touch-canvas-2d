@@ -58,8 +58,8 @@ var SelectionEditMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 	posOverlay:function(figure)
 	{
 		this.overlay.css({
-			"top":figure.getAbsoluteY() + 30,
-			"left":figure.getAbsoluteX() + 235
+			"top":figure.getAbsoluteY() + 60,
+			"left":figure.getAbsoluteX() + 240
 		});
 	}
 });
