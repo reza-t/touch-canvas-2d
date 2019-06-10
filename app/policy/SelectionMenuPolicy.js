@@ -59,7 +59,6 @@ var SelectionMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 
 	posOverlay:function(figure)
 	{
-		console.log(figure.getAbsoluteY())
 		this.overlay.css({
 			"top":figure.getAbsoluteY() + 20,
 			"left":figure.getAbsoluteX() + 140
