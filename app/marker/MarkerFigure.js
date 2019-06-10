@@ -38,11 +38,7 @@ flow.MarkerFigure = draw2d.shape.layout.VerticalLayout.extend({
         });
 
         this.on("mouseleave",function(emitter, event){
-            _this.onMouseOver(true);
-        });
-
-        $(this).on("click", function(event) {
-            console.log(event);
+            _this.onMouseOver(false);
         });
 
         this.on("click touchstart",function(emitter, event){

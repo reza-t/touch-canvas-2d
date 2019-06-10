@@ -1,22 +1,19 @@
-flow.Label = Class.extend({
-  init: function(shape){
-    var label =  new draw2d.shape.basic.Label({text:"Unknown"});
+var Label = draw2d.shape.basic.Label.extend({
+  init: function(shape) {
+    this._super($.extend({ text: "Unknown" }, shape));
 
-    label.installEditor(new flow.LabelEditor({
-      // called after the value has been set to the LabelFigure
-      onCommit: $.proxy(function(value){
+    this.installEditor(
+      new flow.LabelEditor({
+        // called after the value has been set to the LabelFigure
+        onCommit: $.proxy(function(value) {
           // alert("new value set to:"+value);
-      },this),
-      // called if the user abort the operation
-      onCancel: function(){
-      },
-    }));
-    shape.add(label, new draw2d.layout.locator.TopLocator());
-    
+        }, this),
+        // called if the user abort the operation
+        onCancel: function() {}
+      })
+    );
+
+    shape.add(this, new draw2d.layout.locator.TopLocator());
   },
+
 });
-
-
-
-
-

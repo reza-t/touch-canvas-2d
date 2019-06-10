@@ -16,7 +16,7 @@ EndBrick = draw2d.shape.basic.Rectangle.extend({
 
       this.createPort("input");
       flow.myPolicy.shapeFeedback(this);
-      this.label = new flow.Label(this);
+      this.label = new Label(this);
 
   },
 

@@ -28,7 +28,7 @@ flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
       this.setPosition(box.getTopLeft());
       
       flow.myPolicy.shapeFeedback(this);
-      this.label = new flow.Label(this);
+      this.label = new Label(this);
 
   },
 
