@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./css/application.css" />
     <link
       type="text/css"
@@ -42,6 +44,7 @@
     <script src="./app/policy/ContextMenu.js"></script>
     <script src="./app/policy/CopyInterceptorPolicy.js"></script>
     <script src="./app/policy/labelEditorCustomized.js"></script>
+    <script src="./app/policy/SelectionMenuPolicy.js"></script>
 
     <script src="./app/marker/DecoratedInputPort.js"></script>
     <script src="./app/marker/MarkerFigure.js"></script>
@@ -222,6 +225,7 @@
 
     <div
       id="canvas"
+      onselectstart="javascript:/*IE8 hack*/return false"
       ontouchstart="countTouches(event)"
       ontouchend="countTouches(event)"
     ></div>

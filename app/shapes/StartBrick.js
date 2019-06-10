@@ -13,7 +13,6 @@ StartBrick = draw2d.shape.basic.Rectangle.extend({
         attr
       )
     );
-
     this.createPort("output");
 
     flow.myPolicy.shapeFeedback(this);
