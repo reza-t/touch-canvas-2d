@@ -1,5 +1,5 @@
 
-var SelectionMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
+var SelectionDeleteMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 	NAME: "SelectionMenuPolicy",
 
     init : function(attr, setter, getter)
