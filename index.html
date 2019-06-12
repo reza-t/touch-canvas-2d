@@ -121,31 +121,27 @@
         );
         app.view.installEditPolicy(new MyInterceptorPolicy());
 
+        app.view.installEditPolicy( new draw2d.policy.connection.ComposedConnectionCreatePolicy(
+      [
+          // create a connection via Drag&Drop of ports
+          //
+          new draw2d.policy.connection.DragConnectionCreatePolicy({
+              createConnection:createConnection
+          }),
+          // or via click and point
+          //
+          new draw2d.policy.connection.OrthogonalConnectionCreatePolicy({
+              createConnection:createConnection
+          })
+      ])
+  );
+
         canvas = app.view;
         // unmarshal the JSON document into the canvas
         // (load)
         // var reader = new draw2d.io.json.Reader()
         // reader.unmarshal(app.view, jsonDocument)
       });
-
-      // var dblClickEvent = new MouseEvent('dblclick', {
-      //   'view': window,
-      //   'bubbles': true,
-      //   'cancelable': true
-      // });
-      
-      // document.addEventListener('touchstart', function(e){
-      //   var label = e.target;
-      //   var tagName = label.nodeName;
-        
-      //   console.log(flow.labelEditor())
-
-      //   if(tagName === 'tspan') {
-      //     // console.warn(label);
-      //     var changed = label.dispatchEvent(dblClickEvent);
-      //     // console.log(changed)
-      //   }
-      // })
 
       // Count the number of fingers on screen
       function countTouches(event) {

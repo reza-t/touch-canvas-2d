@@ -4,7 +4,7 @@ flow.MyConnection= draw2d.Connection.extend({
     {
         this._super(attr);
 
-        this.setRouter(new draw2d.layout.connection.InteractiveManhattanConnectionRouter());
+        this.setRouter(new draw2d.layout.connection.CircuitConnectionRouter());
         this.setOutlineColor("#303030");
         this.setStroke(3);
         this.setColor('#00A8F0');
