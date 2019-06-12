@@ -120,21 +120,26 @@
           })
         );
         app.view.installEditPolicy(new MyInterceptorPolicy());
+        app.view.installEditPolicy( new draw2d.policy.connection.DragConnectionCreatePolicy(
+          [
+              // create a connection via Drag&Drop of ports
+              //
+              new draw2d.policy.connection.ComposedConnectionCreatePolicy({
+                  createConnection:createConnection
+              }),
+              // or via click and point
+              //
+              new draw2d.policy.connection.OrthogonalConnectionCreatePolicy({
+                  createConnection:createConnection
+              })
+          ])
+        );
 
-        app.view.installEditPolicy( new draw2d.policy.connection.ComposedConnectionCreatePolicy(
-      [
-          // create a connection via Drag&Drop of ports
-          //
-          new draw2d.policy.connection.DragConnectionCreatePolicy({
-              createConnection:createConnection
-          }),
-          // or via click and point
-          //
-          new draw2d.policy.connection.OrthogonalConnectionCreatePolicy({
-              createConnection:createConnection
-          })
-      ])
-  );
+        app.view.getFigures().each(function(i,f){
+          f.getPorts().each(function(i,port){
+              port.setConnectionAnchor(new draw2d.layout.anchor.FanConnectionAnchor(port));
+          });
+        });
 
         canvas = app.view;
         // unmarshal the JSON document into the canvas
