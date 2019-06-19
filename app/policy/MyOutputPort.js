@@ -5,7 +5,7 @@ var MyOutputPort = draw2d.OutputPort.extend({
 
     this.getCssClass();
     this.addCssClass('port');
-    this.setRadius('10');
+    this.setRadius('9');
 
   }
 });

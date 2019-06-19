@@ -5,6 +5,6 @@ var MyInputPort = draw2d.InputPort.extend({
 
     this.getCssClass();
     this.addCssClass('port');
-    this.setRadius('10');
+    this.setRadius('9');
   },
 });
