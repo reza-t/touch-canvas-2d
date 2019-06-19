@@ -22,7 +22,7 @@ var SelectionEditMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 		this._super(canvas, figure, isPrimarySelection);
 
 		if (this.overlay === null) {
-			this.overlay= $("<div class='edit material-icons'>edit</div>");
+			this.overlay= $("<div class='edit material-icons' style='padding-bottom:2px; padding-right:10px'>edit</div>");
 			$("body").append(this.overlay);
 			this.overlay.on("click",function(){
 

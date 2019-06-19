@@ -17,8 +17,10 @@ flow.GeneralBrick = draw2d.shape.basic.Rectangle.extend({
     this.addPort(new DecoratedInputPort());
     this.addPort(new DecoratedInputPort());
     this.addPort(new DecoratedInputPort());
+    
+    this.addPort(new MyOutputPort());
 
-    this.createPort("output");
+    // this.createPort("output");
     flow.myPolicy.shapeFeedback(this);
     this.label = new Label(this);
   },

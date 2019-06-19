@@ -22,7 +22,7 @@ var SelectionDeleteMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 		this._super(canvas, figure, isPrimarySelection);
 
 		if (this.overlay === null) {
-			this.overlay= $("<div class='overlayMenu material-icons'>delete</div>");
+			this.overlay= $("<div class='overlayMenu material-icons style='padding-bottom:2px; padding-right:10px''>delete</div>");
 			$("body").append(this.overlay);
 			this.overlay.on("click",function(){
 
@@ -60,8 +60,8 @@ var SelectionDeleteMenuPolicy = draw2d.policy.figure.SelectionPolicy.extend({
 	posOverlay:function(figure)
 	{
 		this.overlay.css({
-			"top":figure.getAbsoluteY() + 60,
-			"left":figure.getAbsoluteX() + 140
+			"top":figure.y + 60,
+			"left":figure.x + 140
 		});
 	}
 });

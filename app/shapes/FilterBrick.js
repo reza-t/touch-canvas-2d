@@ -22,8 +22,11 @@ flow.FilterBrick = draw2d.shape.basic.Polygon.extend({
       // the triangle are not selectable and modifiable
       //
       this.installEditPolicy(new draw2d.policy.figure.RectangleSelectionFeedbackPolicy());
-      this.createPort("output");
-      this.createPort("input");
+      this.addPort(new MyInputPort());
+      this.addPort(new MyOutputPort());
+
+      // this.createPort("output");
+      // this.createPort("input");
 
       this.setPosition(box.getTopLeft());
       

@@ -1,5 +1,5 @@
 
-var DecoratedInputPort = draw2d.InputPort.extend({
+var DecoratedInputPort = MyInputPort.extend({
 
     init : function(attr, setter, getter)
     {
