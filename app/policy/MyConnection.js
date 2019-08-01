@@ -9,7 +9,16 @@ flow.MyConnection= draw2d.Connection.extend({
         this.setStroke(3);
         this.setColor('#00A8F0');
         this.setRadius(20);
+
+        this.addCssClass('connection')
+        // console.log(this.getCssClass())
     },
+
+    // onClick:function(e) {
+    //     if(this.isSelected()) {
+    //         this.setStroke(6);
+    //     }
+    // },
     
     /**
      * @method

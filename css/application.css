@@ -86,7 +86,7 @@ body {
 }
 
 .btnGroup {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .overlayMenu {
@@ -106,4 +106,9 @@ body {
 .port {
   fill: yellow !important;
   cursor: grabbing !important;
+}
+
+.connection {
+  background-color: black !important;
+  color: #e0e0e0 !important;
 }

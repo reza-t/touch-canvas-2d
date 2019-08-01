@@ -5,7 +5,8 @@
   <head>
     <title></title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, minimum-scale=no" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -16,6 +17,12 @@
       rel="stylesheet"
       href="./lib/bootstrap/css/bootstrap.css"
     />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+
     <!-- <link type="text/css" rel="stylesheet" href="./lib/bootstrap/css/bootstrap-theme.css" /> -->
     <script src="./lib/jquery.js"></script>
     <script src="./lib/jquery-ui.js"></script>
@@ -116,26 +123,20 @@
         app.view.installEditPolicy(
           new draw2d.policy.canvas.ExtendedKeyboardPolicy()
         );
+        // Click to connect the connection
+        app.view.installEditPolicy(
+          new draw2d.policy.connection.ClickConnectionCreatePolicy({
+            createConnection: createConnection
+          })
+        );
+
+        // Drag to create connection
         app.view.installEditPolicy(
           new draw2d.policy.connection.DragConnectionCreatePolicy({
             createConnection: createConnection
           })
         );
         app.view.installEditPolicy(new MyInterceptorPolicy());
-        app.view.installEditPolicy( new draw2d.policy.connection.DragConnectionCreatePolicy(
-          [
-              // create a connection via Drag&Drop of ports
-              //
-              new draw2d.policy.connection.ComposedConnectionCreatePolicy({
-                  createConnection:createConnection
-              }),
-              // or via click and point
-              //
-              new draw2d.policy.connection.OrthogonalConnectionCreatePolicy({
-                  createConnection:createConnection
-              })
-          ])
-        );
 
         app.view.getFigures().each(function(i,f){
           f.getPorts().each(function(i,port){
@@ -148,7 +149,13 @@
         // (load)
         // var reader = new draw2d.io.json.Reader()
         // reader.unmarshal(app.view, jsonDocument)
+        
       });
+
+      function createStartBrick() {
+        var start = new StartBrick({x:50, y:50});
+        canvas.add(start);
+      };
 
       // Count the number of fingers on screen
       function countTouches(event) {
@@ -165,9 +172,13 @@
           canvas.setZoom(1.0, true);
         }
       }
+      
+      // function onBrickClick() {
+        
+      //   console.log("CLICKED");
+      // }
+     
 
-      
-      
     </script>
   </head>
 
@@ -187,11 +198,16 @@
         <div
           data-shape="StartBrick"
           id="start"
-          class="palette_node_element draw2d_droppable"
+          class="palette_node_element draw2d_droppable brick"
           title="drag&amp;drop the table into the canvas.."
+     
         >
           <img src="./app/icons/brick_type_inlet.png" style="width: 60px">
           Start
+          <div class="dropdown-menu dropdown-menu-sm" id="context-menu">
+              <a class="dropdown-item addStart" href="#">Add to Canvas</a>
+              <a class="dropdown-item cancel" href="#">Cancel</a>
+            </div>
         </div>
         <div
           data-shape="EndBrick"
@@ -238,4 +254,31 @@
       style="overflow:auto;position:absolute; top:50px; right:15px; width:15em; height:800;background:white;border:1px solid gray"
     ></pre> -->
   </body>
+
+  <script>
+  
+  $('.brick').on('click', function(e) {
+    console.log(e)
+      var top = e.pageY + 5;
+      var left = e.pageX + 20;
+      $("#context-menu").css({
+        display: "block",
+        top: top,
+        left: left
+      }).addClass("show");
+      return false; //blocks default Webbrowser right click menu
+    });
+
+    $(".addStart").on("click", function(event) {
+      event.stopPropagation();
+      $(this).parent().removeClass("show").hide();
+      createStartBrick();
+    });
+
+    $(".cancel").on("click", function(event) {
+      event.stopPropagation();
+      $(this).parent().removeClass("show").hide();
+    });
+  
+  </script>
 </html>
