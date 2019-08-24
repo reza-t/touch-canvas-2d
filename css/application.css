@@ -54,9 +54,9 @@ body {
   padding: 10px;
   cursor: move;
   width: 80px;
-  margin: 30px auto 30px auto;
+  margin: 20px auto 20px auto;
   text-align: center;
-  align: center;
+  align-content: center;
   border-radius: 5px;
 }
 
